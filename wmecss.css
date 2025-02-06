@@ -52,6 +52,9 @@ img {
 	background: #a5c1b2;
 	min-width: calc(60% - 220px);
 	padding: 20px;
+	transition: 300ms ease;
+	background-position: center;
+	background-size: cover;
 }
 
 #items {
@@ -98,14 +101,17 @@ img {
 }
 
 .item, .backdrop {
-	flex: 1 1 50%;
+	flex: 0 1 50%;
 	display: inline-flex;
+	margin: auto;
 	flex-direction: column;
 	align-items: center;
 }
 
 .item {
 	padding: 0 10px 10px;
+	min-height: 70px;
+    justify-content: flex-end;
 }
 
 .backdrop {
@@ -116,8 +122,13 @@ img {
 	max-width: 100%;
 	width: max-content;
 	height: auto;
+	cursor: pointer;
 }
 
 .dragged {
 	position: absolute;
+}
+
+.item-title, .backdrop-title {
+	cursor: pointer;
 }
