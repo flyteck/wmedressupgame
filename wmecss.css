@@ -3,7 +3,7 @@
 }
 
 html {
-	scrolling: smooth;
+	scroll-behaviour: smooth;
 	background: #14352D;
 	font-family: "Averia Libre", serif;
 }
@@ -116,4 +116,8 @@ img {
 	max-width: 100%;
 	width: max-content;
 	height: auto;
+}
+
+.dragged {
+	position: absolute;
 }
