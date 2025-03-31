@@ -17,8 +17,9 @@
 #### frontend todo:
 - [ ] add select equid dropdown functionality
 - [ ] add account creation/login and equid upload page
-- [ ] add scroll for overflowing items and backdrops in containers-- horizontal for items, vertical for backdrops
+- [x] add scroll for overflowing items and backdrops in containers-- horizontal for items, vertical for backdrops
 - [ ] add website theme selector to change site looks
+- [ ] make the stage and doll centred inside the game container
 
 # Bugs:
 - drag and drop not work when window scrolled down
