@@ -1,74 +1,118 @@
 // Code logic time okay so. Drag and drop, must be positioned absolute
 // When you click on a draggable item and move it out of the div, it adds a class that positions it absolute
 // this should be the IMAGE I think? not the div. The div with the title can stay
+// todo: add docstrings to explain the functions for reference later
 
-var items = document.querySelectorAll('.item'); 
+// god this is a nightmare
 
-for(var i = 0; i < items.length; i++) {
-       items[i].addEventListener('dragstart', itemDrag(i));
-       items[i].addEventListener('dragend', itemPosition(i));
+document.addEventListener("DOMContentLoaded", () => {
+	// Get references to the items and stage
+	const items = document.querySelectorAll('.item');
+	const stage = document.getElementById('stage');
+
+	// handles clicking an item to add it to the stage
+	items.forEach(item => {
+		item.addEventListener('click', () => {
+			// Get the image source of the clicked item
+			const imageSrc = item.querySelector('img').src;
+
+			// Create a new div to represent the item on the stage
+			const newItem = document.createElement('div');
+			newItem.classList.add('stage-item');
+			newItem.setAttribute('draggable', 'true');
+			newItem.innerHTML = `
+                <img src="${imageSrc}" alt="Item" class="stage-item-img">
+            `;
+
+			// Center the new item on the stage
+			const stageWidth = stage.offsetWidth;
+			const stageHeight = stage.offsetHeight;
+			const itemWidth = newItem.offsetWidth;
+			const itemHeight = newItem.offsetHeight;
+
+			newItem.style.position = 'absolute';
+			newItem.style.left = `${(stageWidth - itemWidth) / 2}px`;
+			newItem.style.top = `${(stageHeight - itemHeight) / 2}px`;
+
+			// Append the new item to the stage
+			stage.appendChild(newItem);
+
+			// Make the new item draggable
+			makeItemDraggable(newItem);
+		});
+	});
+});
+
+	// Function to handle dragging and repositioning of items on the stage
+	function makeItemDraggable(item) {
+		let offsetX = 0;
+		let offsetY = 0;
+
+		item.addEventListener('dragstart', (e) => {
+			// Get the initial offset when the drag starts
+			offsetX = e.clientX - item.getBoundingClientRect().left;
+			offsetY = e.clientY - item.getBoundingClientRect().top;
+		});
+
+		item.addEventListener('dragover', (e) => {
+			e.preventDefault();
+
+			// Reposition the item while it's being dragged
+			item.style.position = 'absolute';
+			item.style.left = `${e.clientX - offsetX}px`;
+			item.style.top = `${e.clientY - offsetY}px`;
+		});
+
+		item.addEventListener('dragend', () => {
+			// Reset the position after the drag ends
+			item.style.position = 'absolute'; // Keeps the item in its new position
+		});
+	}
+
+// background functionality
+// get all backdrops
+	const backdrops = document.querySelectorAll('.backdrop');
+
+// Loop through backdrops array to add event listeners
+	backdrops.forEach((backdrop) => {
+		backdrop.addEventListener('click', () => backdropSwitch());
+	})
+
+	// function that causes the backdrop switch
+	function backdropSwitch() {
+		let backdropImage = event.target.src;
+		let dollImage = document.getElementById('doll');
+
+		// If the clicked BG is equipped, remove it; otherwise, apply the BG
+		if (dollImage.style.backgroundImage === 'url("' + backdropImage + '")') {
+			dollImage.style.backgroundImage = '';
+		} else {
+			dollImage.style.backgroundImage = 'url("' + backdropImage + '")';
+		}
+	}
+
+// scale items with doll size functionality
+const dollImage = document.getElementById('doll');
+	let dollWidth, dollHeight;
 
 
-	 	var itemToggle = items[i].querySelector(".item-title");
+//code to replace the Equid image with the user uploaded image
+// get the equid upload button
+const equidUpload = document.getElementById('upload-button');
+// get the user input url from the rat upload button
+const newEquid = document.getElementById('equid-url-input');
+//get the rat image spot
+const dollSpot = document.getElementById('doll');
+// Replace the rat image with the new rat image when the upload button is clicked
+equidUpload.onclick = function() {
+	// Get the URL entered by the user
+	const newEquidURL = newEquid.value;
 
-       itemToggle.addEventListener('click', itemReturn(i));
- }
-
-//add the dragged class when an item is dragged, positioning it absolutely
-function itemDrag(i) {
-    return function() {
-    	var item = event.target;
-
-        item.classList.add('dragged');
-    };
-}
-
-//once the user stops dragging, place the image based on the x/y cord of the cursor, and center the image on the cursor instead of the top left
-function itemPosition(i) {
- 	return function() {
-	 	var item = event.target;
-	 	var container = document.getElementById('dressup-wrapper');
-	 	var itemWidthHalf = item.width / 2;
-	 	var itemHeightHalf = item.height / 2;
-
-	 	item.classList.add('dragged');
-
-	 	item.style.left = Number(event.clientX) - Number(itemWidthHalf) + 'px';
-	 	item.style.top = Number(event.clientY) - Number(itemHeightHalf) + 'px';
-	 };
-}
-
-// when the user clicks the title of the item (may make a button for this instead), return the item to its menu spot
-function itemReturn(i) {
-	return function() {
-	 	var itemToggle = event.target;
-	 	var container = itemToggle.parentNode
-	 	var item = container.querySelector(".image");
-        
-        item.classList.remove('dragged');
-        console.log("returned")
-	 };
-}
-
- // Aaand this is the code for the BGs
-var backdrops = document.querySelectorAll('.backdrop'); 
-
- for(var i = 0; i < backdrops.length; i++) {
-       backdrops[i].addEventListener('click', backdropSwitch(i));
- }
-
- function backdropSwitch() {
- 	return function() {
-	 	var backdropImage = event.target.src;
-	 	var equidImage = document.getElementById('wme-image');
-
-	 	// If the clicked BG is equipped, remove it; otherwise, apply the BG
-	 	if(equidImage.style.backgroundImage == 'url("' + backdropImage + '")') {
-	 		equidImage.style.backgroundImage = '';
-	 	} else {
-	 		equidImage.style.backgroundImage = 'url("' + backdropImage + '")';
-	 	}
-
-
-	 };
- }
+	// Check if the URL is valid
+	if (newEquidURL) {
+		// Set the rat image's src to the new URL
+		dollSpot.src = newEquidURL;
+	} else {
+		alert("Please enter a valid URL for the rat image.");
+	}
+};

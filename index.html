@@ -8,41 +8,92 @@
 </head>
 
 <body>
+<!--contains entire game window-->
 	<div class="wrapper">
-		<div id="dropdown">Dropdown Placeholder</div>
+<!--		drop down selector to choose user equid todo: implement this functionality-->
+		<div id="dropdown">Upload Equid from URL
+		<input type="text" id="equid-url-input" placeholder="Enter image URL" />
+		<button id="upload-button">Upload Equid Image from URL</button></div>
+
+<!--	wrapper that contains dressup game-->
 		<div id="dressup-wrapper">
-			<div id="dressup-container">
-				<img src="https://www.chickensmoothie.com/oekaki/image/image.php?id=4294559&size=large&format=png&rev=1737171438" id="wme-image">
+<!--			stage div to act as the dressup scene area.-->
+				<div id="stage">
+<!--				default equid image, todo: changes on user selection from dropdown-->
+					<img src="Assets/banana.png" id="doll">
+<!--			close stage-->
+				</div>
+
+<!--		div that contains items and backdrops-->
+			<div id="dressup-elements">
+	<!--		contains dressup items-->
+<!--			contains settings for game	-->
+				<div id="settings">
+					<div id="settings-wrapper">
+						<h3 class="settings-header">Settings</h3>
+						<div class="setting">
+							<img src="Assets/Settings/bin.png" class="image">
+							<span class="setting-title">Bin</span>
+						</div>
+						<p> contains settings like size, rotate, etc.</p>
+					</div>
+				</div>
+
+<!--			contains items-->
 				<div id="items">
-					<h3 class="items-header">Items</h3>
-					<div class="item">
-						<img src="https://static.chickensmoothie.com/item/16238&p=82826.jpg" class="image">
-						<span class="item-title">Hat</span>
+					<div id="items-wrapper">
+						<h3 class="items-header">Items</h3>
+						<div class="item" draggable="true">
+							<img src="Assets/Items/bridle.png" class="image">
+							<span class="item-title">Bridle</span>
+						</div>
+						<div class="item" draggable="true">
+							<img src="Assets/Items/trophy.png" class="image">
+							<span class="item-title">Trophy</span>
+						</div>
+						<div class="item" draggable="true">
+							<img src="Assets/Items/1st.png" class="image">
+							<span class="item-title">1st Place</span>
+						</div>
+						<div class="item" draggable="true">
+							<img src="Assets/Items/2nd.png" class="image">
+							<span class="item-title">2nd Place</span>
+						</div>
+						<div class="item" draggable="true">
+							<img src="Assets/Items/3rd.png" class="image">
+							<span class="item-title">3rd Place</span>
+						</div>
+	<!--			close items wrapper-->
 					</div>
-					<div class="item">
-						<img src="https://static.chickensmoothie.com/item/4342&p=11624.jpg" class="image">
-						<span class="item-title">Apple</span>
-					</div>
-					<div class="item">
-						<img src="https://static.chickensmoothie.com/item/6620&p=25049.jpg" class="image">
-						<span class="item-title">Flower</span>
-					</div>
+	<!--		close items-->
 				</div>
-			</div>
-			<div id="backdrops">
-				<h3 class="backdrops-header">Backdrops</h3>
-				<div id="backdrops-wrapper">
-					<div class="backdrop">
-						<img src="https://static.chickensmoothie.com/item/3634&p=13497.jpg" class="image">
-						<span class="backdrop-title">Beach</span>
+
+	<!--		contains backdrops-->
+				<div id="backdrops">
+					<h3 class="backdrops-header">Backdrops</h3>
+					<div id="backdrops-wrapper">
+						<div class="backdrop">
+							<img src="/Assets/Backdrops/meadow.png" class="image">
+							<span class="backdrop-title">Meadow</span>
+						</div>
+						<div class="backdrop">
+							<img src="/Assets/Backdrops/rainbow.png" class="image">
+							<span class="backdrop-title">Rainbow</span>
+						</div>
+						<div class="backdrop">
+							<img src="/Assets/Backdrops/mountains.png" class="image">
+							<span class="backdrop-title">Mountains</span>
+						</div>
+	<!--			close backdrops wrapper-->
 					</div>
-					<div class="backdrop">
-						<img src="https://static.chickensmoothie.com/item/3636&p=13499.jpg" class="image">
-						<span class="backdrop-title">Night</span>
-					</div>
+	<!--		close backdrops-->
 				</div>
+<!--		close dressup elements-->
 			</div>
+
+<!--	close dressup wrapper-->
 		</div>
+<!--close wrapper-->
 	</div>
 
 	<script src="script.js"></script>
