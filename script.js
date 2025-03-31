@@ -48,7 +48,23 @@ document.addEventListener("DOMContentLoaded", () => {
 		let offsetX = 0;
 		let offsetY = 0;
 
+		// adds glow effect to hover over item
+		item.addEventListener('mouseenter', () => {
+			item.classList.add('glow');
+		})
+		// removes glow when stop hover
+		item.addEventListener('mouseleave', () => {
+			item.classList.remove('glow');
+		})
+
+		item.addEventListener('click', () => {
+			item.classList.toggle('redGlow');
+		})
+
 		item.addEventListener('dragstart', (e) => {
+			// Add glow effect when dragging starts
+			item.classList.add('glow');
+
 			// Get the initial offset when the drag starts
 			offsetX = e.clientX - item.getBoundingClientRect().left;
 			offsetY = e.clientY - item.getBoundingClientRect().top;
@@ -64,10 +80,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 
 		item.addEventListener('dragend', () => {
+			// remove glow effect on drag end
+			item.classList.remove('glow');
 			// Reset the position after the drag ends
 			item.style.position = 'absolute'; // Keeps the item in its new position
 		});
 	}
+
+// 	function to delete items from game window
+function deleteItem(item) {
+		// if item has red glow, delete from game on click of X button
+}
 
 // background functionality
 // get all backdrops
@@ -91,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-// scale items with doll size functionality
+// scale items with doll size functionality todo: finish this
 const dollImage = document.getElementById('doll');
 	let dollWidth, dollHeight;
 
@@ -116,3 +139,4 @@ equidUpload.onclick = function() {
 		alert("Please enter a valid URL for the rat image.");
 	}
 };
+

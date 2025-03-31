@@ -52,11 +52,10 @@ img {
 }
 
 #doll {
-	background: linear-gradient(#bfdcdf, #9fcadf, #747574, #9caa8d);
 	/*min-width: calc(60% - 220px);*/
 	padding: 20px;
 	transition: 300ms ease;
-	background-position: center;
+	background: linear-gradient(#bfdcdf, #9fcadf, #747574, #9caa8d) center;
 	background-size: cover;
 }
 
@@ -70,7 +69,7 @@ img {
 	max-height: 300px;
 }
 
-#items, #backdrops {
+#items, #backdrops, #settings {
 	display: flex;
 	flex-basis: 48%;
 	padding: 10px;
@@ -81,21 +80,27 @@ img {
 
 /* Enable scrolling specifically for the items and backdrops */
 #items {
-	flex-basis: 73%;
+	flex-basis: 50%;
 	flex-direction: row;
 	overflow-x: auto; /* Scroll horizontally */
 	overflow-y: hidden; /* Prevent vertical scroll */
 }
 
 #backdrops {
-	flex-basis: 25%;
+	flex-basis: 24%;
 	flex-direction: column;
 	overflow-y: auto; /* Scroll vertically */
 	overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+#settings {
+	flex-basis: 24%;
+	flex-direction: column;
+	overflow-y: auto; /* Scroll vertically */
+	overflow-x: hidden; /* Prevent horizontal scroll */
+}
 
-.items-header, .backdrops-header {
+.items-header, .backdrops-header, .settings-header {
 	padding: 5px 10px;
 	background: #819daa;
 	color: #dee7e2;
@@ -135,6 +140,15 @@ img {
 	gap: 10px;
 }
 
+.settings-wrapper {
+	padding: 10px;
+	overflow-y: auto; /* enables vertical scrolling */
+	overflow-x: hidden; /* Prevent horizontal scroll */
+	max-height: 100%; /* Limit the height */
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
 
 /* Styling for individual items and backdrops */
 .item, .backdrop {
@@ -163,6 +177,11 @@ img {
 	transition: transform 0.2s ease-in-out;
 }
 
+.setting img {
+	height: 50px;
+	cursor: pointer;
+}
+
 .item img:hover, .backdrop img:hover {
 	transform: scale(1.05);
 }
@@ -180,4 +199,14 @@ img {
 
 .item-title, .backdrop-title {
 	cursor: pointer;
+}
+
+/*causes the glow effect for items hovered and dragged in game window*/
+.glow {
+	background-image: radial-gradient(circle, rgb(255, 196, 0) 0%, rgba(255, 0, 0, 0) 60%);
+}
+
+/*glow effect to be used for deleting items*/
+.redGlow {
+	background-image: radial-gradient(circle, rgb(255, 0, 36) 0%, rgba(255, 0, 0, 0) 60%);
 }

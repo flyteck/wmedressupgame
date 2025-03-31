@@ -12,8 +12,8 @@
 	<div class="wrapper">
 <!--		drop down selector to choose user equid todo: implement this functionality-->
 		<div id="dropdown">Upload Equid from URL
-		<input type="text" id="equid-url-input" placeholder="Enter image URL" />
-		<button id="upload-button">Upload Equid Image from URL</button></div>
+		<input type="url" id="equid-url-input" placeholder="Enter image URL" />
+		<button id="upload-button">Upload</button></div>
 
 <!--	wrapper that contains dressup game-->
 		<div id="dressup-wrapper">
@@ -31,18 +31,41 @@
 				<div id="settings">
 					<div id="settings-wrapper">
 						<h3 class="settings-header">Settings</h3>
-						<div class="setting">
-							<img src="Assets/Settings/bin.png" class="image">
-							<span class="setting-title">Bin</span>
+
+						<div class="setting" id="help">
+							<img src="Assets/help.png" class="image">
+							<span class="setting-title">Help</span>
 						</div>
-						<p> contains settings like size, rotate, etc.</p>
+						<div class="setting" id="bin">
+						<img src="Assets/delete.png" class="image">
+						<span class="setting-title">Remove Item</span>
 					</div>
+						<div class="setting" id="size">
+							<label>Size <input type="range" id="widthSlider" min="50" max="500" value="200"></label>
+						</div>
+						<div class="setting" id="rotate">
+							<label>Rotate <input type="range" id="heightSlider" min="50" max="500" value="200"></label>
+						</div>
+						<div class="setting" id="reset">
+						<button id="resetButton">Reset</button>
+						</div>
+						<div class="setting" id="flip">
+							<button id="flipButton">Flip</button>
+						</div>
+						<div class="setting" id="background-colour">
+							<label>Colour <input type="color" id="colour"></label>
+
+						</div>
+<!--				close settings wrapper-->
+					</div>
+<!--			close settings-->
 				</div>
 
 <!--			contains items-->
 				<div id="items">
 					<div id="items-wrapper">
 						<h3 class="items-header">Items</h3>
+
 						<div class="item" draggable="true">
 							<img src="Assets/Items/bridle.png" class="image">
 							<span class="item-title">Bridle</span>
@@ -70,8 +93,9 @@
 
 	<!--		contains backdrops-->
 				<div id="backdrops">
-					<h3 class="backdrops-header">Backdrops</h3>
 					<div id="backdrops-wrapper">
+						<h3 class="backdrops-header">Backdrops</h3>
+
 						<div class="backdrop">
 							<img src="/Assets/Backdrops/meadow.png" class="image">
 							<span class="backdrop-title">Meadow</span>
