@@ -2,6 +2,7 @@
 // When you click on a draggable item and move it out of the div, it adds a class that positions it absolute
 // this should be the IMAGE I think? not the div. The div with the title can stay
 // todo: add docstrings to explain the functions for reference later
+// change to object oriented approach
 
 // god this is a nightmare
 
