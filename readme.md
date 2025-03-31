@@ -1,22 +1,57 @@
 
 # Wme Dressup Game
 
+Developer Specs:  
+Kitty working on a 2021 16gb ram macbook with M1 pro chip.
+
 ### How the game works
 ###### users, accounts, and equids
 - Users register for our website and can 
 upload their equids
 - The information we will ask for on equid upload is:
   - adoption page url
+  - Generation (gen 1 through 4)
+  - height in hands
   - name (can be changed by the current owner at any time)
   - sex (Stallion, mare, potential for intersex option also)
   - gender & pronouns (can be changed by owner at any time or left blank)
   - owner (so users can upload equids for other users)
   - sire & dam. (potential for sire & sire or Dam & dam options if same sex breeding is ever implemented)
   - potential to have "unclaimed" equids uploaded for family tree purposes that can be claimed once the owner registers an account.
-- these equids are then added to our database where we will store:
+- these equids are then added to our database where we will also store:
   - file path to equid image (equid .png images to be grabbed via script from CS adopt page and stored either on server or cloud storage)
   - unique equid identifier (taken from URL so that no duplicates are uploaded)
-  - equid info like height
+  - other info as needed
+  
+###### Equid Pages
+- On equid profile pages, you can see their current saved dress-up scene (so what they're wearing and what environment they're in)
+- This is where users can add short bios 
+- Users can also feature RP posts or threads that the equid is involved in
+- view owner and all equid details including unique ID
+- any other features that users may want, like viewing family trees
+
+###### User Pages
+- Users can upload a 50px profile image
+- a short bio and/or forum signature (character limit needs consideration)
+- potential to feature an equid or rp forum/post
+
+###### Inventory
+- users have an inventory of items which they can apply to their equids.
+- limited stock: users can only apply as many items as they own across their equids. E.g only owns 4 hats, can only dress 4 equids, or 1 equid in 4 hats.
+
+### Database Structure
+- the database structure is still in minor development, but here is the general gist:
+
+| DB table | what it stores | relationships                                                                  | primary key                                                                         |
+|----------|-----|--------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| users | information about the website user: username, any details necessary | User Owns Equids, User Owns Items. To equids one to many, To items one to many | user ID generated at signup                                                         |
+| equids| stores all equid information | Equids wear items. To items one to many, to users many to one                  | Unique identifier retrieved from URL (special case manual ID for deviantart equids) |
+| items | stores items and backdrops | To users many to one, to equids many to one,   | Item ID generated at item creation or item name for time being                      |                                
+ER Diagram below (still a wip)
+![img.png](EntityRelationshipDiagram.png)
+
+### Style Guide
+- document yet to be created-- team workshop it?
 
 ### What we won't do
 - no file uploads for art made offsite or images not pursuant to the dress up game.
@@ -48,6 +83,8 @@ upload their equids
   - if it works out and we want to make a bit of money, we could potentially license this system to other closed species or develop a platform.
 - breeding request system
   - details on how it would work would need much thought
+- possible support for older generations of equid in dress-up game
+- Forum RP system possibly
 
 ### Ethos for Management
 - approachable, level and kind: we do not want our users to be scared of us
@@ -60,6 +97,7 @@ upload their equids
 - we want to maintain a level of agency over our work: the thing i am tense about is the possibility that horsy comes on board and "takes over" for want of a better expression.
 - it's important for us to retain ownership of our IP, so I would consider a very clear licensing structure of our software to horsy that ensures this.
 - we do not want to get into a position where our passion project becomes driven by horsy: we have final say over what features we do and don't implement. She is a client to us, not the other way around.
+- ideally i don't really want horsy to be on board in any authoratative sense- i would rather we just run a service for the community that is independent of any rules she might change
 
 ### Security Concerns
 - consider 2 factor authentication for accounts and anti-bot measures at signup and any file uploads.
