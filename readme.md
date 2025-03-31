@@ -85,6 +85,8 @@ ER Diagram below (still a wip)
   - details on how it would work would need much thought
 - possible support for older generations of equid in dress-up game
 - Forum RP system possibly
+- MYO submission system
+  - give users access to the equid lineart, users can use a MYO token to access and colour in, submit the design for approval anonymously, then gets anonymous approval/rejection with feedback.
 
 ### Ethos for Management
 - approachable, level and kind: we do not want our users to be scared of us

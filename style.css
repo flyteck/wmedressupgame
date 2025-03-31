@@ -7,7 +7,7 @@
 
 /* set font and bg colour */
 html {
-	scroll-behaviour: smooth;
+	/*scroll-behaviour: smooth;*/
 	font-family: "Averia Libre", serif;
 	background: #819daa url(/Assets/Backdrops/mountains.png) no-repeat center center;
 	background-size: 110%;
@@ -193,12 +193,9 @@ img {
 	margin-top: 5px;
 }
 
+/* sets dragged elements to absolute for proper positioning*/
 .dragged {
 	position: absolute;
-}
-
-.item-title, .backdrop-title {
-	cursor: pointer;
 }
 
 /*causes the glow effect for items hovered and dragged in game window*/
@@ -209,4 +206,29 @@ img {
 /*glow effect to be used for deleting items*/
 .redGlow {
 	background-image: radial-gradient(circle, rgb(255, 0, 36) 0%, rgba(255, 0, 0, 0) 60%);
+}
+
+
+/* css for the help button popup for game rules/instructions */
+.popup {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+.popup-content {
+	position: relative;
+}
+
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
 }

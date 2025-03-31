@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const items = document.querySelectorAll('.item');
 	const stage = document.getElementById('stage');
 
+	// main game logic
 	// handles clicking an item to add it to the stage
 	items.forEach(item => {
 		item.addEventListener('click', () => {
@@ -41,6 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
 			makeItemDraggable(newItem);
 		});
 	});
+
+	// item size functionality
+// add event listener for slider html element
+	const scaleSlider = document.getElementById('scale-slider');
+	scaleSlider.addEventListener('input', () => {
+		// select items by red glow
+		const selectedItems = document.querySelectorAll('.redGlow');
+		// iterate these items and scale them
+		selectedItems.forEach(item => {
+			// const scaleValue = scaleSlider.value / 100;
+			item.style.transform = `scale(${scaleSlider.value / 10})`;
+		});
+	});
+
 });
 
 	// Function to handle dragging and repositioning of items on the stage
@@ -87,14 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
+
+	// delete items functionality
 	// attach event listener to delete button
 const deleteButton = document.getElementById('delete-button');
+	//  if delete button is pressed then delete all selected items
 	if(deleteButton) {
 		deleteButton.addEventListener('click', () => deleteItem());
 	}
 
 // 	function to delete items from game window
-function deleteItem(item) {
+function deleteItem() {
 	//  get all items with red glow css property
 	const selectedItems = document.querySelectorAll('.redGlow');
 	// loop through all items and delete
@@ -102,6 +120,7 @@ function deleteItem(item) {
 		item.remove();
 	});
 }
+
 
 // background functionality
 // get all backdrops
@@ -125,12 +144,13 @@ function deleteItem(item) {
 		}
 	}
 
+
 // scale items with doll size functionality todo: finish this
 const dollImage = document.getElementById('doll');
 	let dollWidth, dollHeight;
 
 
-//code to replace the Equid image with the user uploaded image
+// code to replace the Equid image with the user uploaded image
 // get the equid upload button
 const equidUpload = document.getElementById('upload-button');
 // get the user input url from the rat upload button
@@ -150,4 +170,23 @@ equidUpload.onclick = function() {
 		alert("Please enter a valid URL for the rat image.");
 	}
 };
+
+
+// help popup functionality
+// Function to open the help popup
+function openHelpPopup() {
+	document.getElementById('help-popup').style.display = 'block';
+}
+
+// Function to close the help popup
+function closeHelpPopup() {
+	document.getElementById('help-popup').style.display = 'none';
+}
+
+// Attach event listener to the help button
+const helpButton = document.getElementById('help-button'); // Ensure your help button has this ID
+if (helpButton) {
+	helpButton.addEventListener('click', openHelpPopup);
+}
+
 

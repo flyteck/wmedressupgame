@@ -1,6 +1,8 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
+	<meta charset="UTF-8">
+	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Freckle+Face&family=Permanent+Marker&display=swap');
@@ -12,7 +14,7 @@
 	<div class="wrapper">
 <!--		drop down selector to choose user equid todo: implement this functionality-->
 		<div id="dropdown">Upload Equid from URL
-		<input type="url" id="equid-url-input" placeholder="Enter image URL" />
+		<label> URL input <input type="url" id="equid-url-input" placeholder="Enter image URL" /></label>
 		<button id="upload-button">Upload</button></div>
 
 <!--	wrapper that contains dressup game-->
@@ -20,7 +22,7 @@
 <!--			stage div to act as the dressup scene area.-->
 				<div id="stage">
 <!--				default equid image, todo: changes on user selection from dropdown-->
-					<img src="Assets/banana.png" id="doll">
+					<img src="Assets/banana.png" id="doll" alt="doll">
 <!--			close stage-->
 				</div>
 
@@ -32,7 +34,7 @@
 					<div id="settings-wrapper">
 						<h3 class="settings-header">Settings</h3>
 
-						<div class="setting" id="help">
+						<div class="setting" id="help-button">
 							<img src="Assets/help.png" class="image">
 							<span class="setting-title">Help</span>
 						</div>
@@ -41,10 +43,10 @@
 						<span class="delete-button">Remove Item</span>
 					</div>
 						<div class="setting" id="size">
-							<label>Size <input type="range" id="widthSlider" min="50" max="500" value="200"></label>
+							<label>Size <input type="range" id="scale-slider" min="5" max="20" value="10"></label>
 						</div>
 						<div class="setting" id="rotate">
-							<label>Rotate <input type="range" id="heightSlider" min="50" max="500" value="200"></label>
+							<label>Rotate <input type="range" id="rotate-slider" min="50" max="500" value="200"></label>
 						</div>
 						<div class="setting" id="reset">
 						<button id="resetButton">Reset</button>
@@ -54,7 +56,9 @@
 						</div>
 						<div class="setting" id="background-colour">
 							<label>Colour <input type="color" id="colour"></label>
-
+						</div>
+						<div class="setting" id="bring-to-front">
+							<button id="bring-to-front-button">Bring To Front</button>
 						</div>
 <!--				close settings wrapper-->
 					</div>
@@ -119,6 +123,17 @@
 		</div>
 <!--close wrapper-->
 	</div>
+
+<!-- help popup -->
+<div id="help-popup" class="popup">
+	<div class="popup-content">
+		<span class="close-button" onclick="closeHelpPopup()">&times;</span>
+		<h2>How to Play</h2>
+		<p>Click an item from the hotbar to add it to the scene. <br>
+			Drag it around to place it, or click on it to select it. <br>
+			Once selected, you can edit the item in the settings window or delete it.</p>
+	</div>
+</div>
 
 	<script src="script.js"></script>
 </body>
