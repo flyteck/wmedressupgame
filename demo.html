@@ -1,0 +1,192 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Freckle+Face&family=Permanent+Marker&display=swap');
+  </style>
+</head>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behaviour: smooth;
+    background: #14352D;
+    font-family: "Averia Libre", serif;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    max-width: min(100%, 1000px);
+    flex-direction: column;
+    margin: 40px auto;
+  }
+
+  #dropdown {
+    padding: 5px 10px;
+    background: #2c5d51;
+    color: #dee7e2;
+    margin: 10px;
+    width: fit-content;
+    border-radius: 4px;
+  }
+
+  #dressup-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 110vh;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 4px;
+    border: 4px solid #2c5d51;
+  }
+
+  #dressup-container {
+    display: flex;
+    overflow: hidden;
+  }
+
+  #wme-image {
+    background: #a5c1b2;
+    min-width: calc(100% - 220px);
+    padding: 20px;
+    transition: 300ms ease;
+    background-position: center;
+    background-size: cover;
+  }
+
+  #items {
+    width: 220px;
+    max-width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    background: #dee7e2;
+    align-content: flex-start;
+    border-left: 4px solid #2c5d51;
+  }
+
+  .items-header {
+    padding: 5px 10px;
+    width:100%;
+    margin: 0 0 10px;
+    background: #2c5d51;
+    color: #dee7e2;
+    border-bottom: 2px dashed #14352d;
+    font-family: "Permanent Marker", serif;
+  }
+
+  #backdrops {
+    background: #dee7e2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .backdrops-header {
+    padding: 5px 10px;
+    width: 100%;
+    margin: 0 0 10px;
+    background: #2c5d51;
+    color: #dee7e2;
+    border-bottom: 2px dashed #14352d;
+    font-family: "Permanent Marker", serif;
+  }
+
+  #backdrops-wrapper {
+    padding: 10px 20px;
+    width: 100%;
+    overflow: scroll;
+    white-space: nowrap;
+  }
+
+  .item, .backdrop {
+    flex: 0 1 50%;
+    display: inline-flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item {
+    padding: 0 10px 10px;
+    min-height: 70px;
+    justify-content: flex-end;
+  }
+
+  .backdrop {
+    width: 100px;
+  }
+
+  .item img, .backdrop img {
+    max-width: 100%;
+    width: max-content;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .dragged {
+    position: absolute;
+  }
+
+  .item-title, .backdrop-title {
+    cursor: pointer;
+  }
+</style>
+
+<body>
+<div class="wrapper">
+  <div id="dropdown">Select Equid</div>
+  <div id="dressup-wrapper">
+    <div id="dressup-container">
+      <!--				stage div to act as the dressup scene area.-->
+      <div id="stage">
+        <!--					default equid image, todo: changes on user selection from dropdown-->
+        <img src="Assets/banana.png" id="doll">
+      </div>
+      <div id="items">
+        <h3 class="items-header">Items</h3>
+        <div class="item" draggable="true">
+          <img src="Assets/Items/bridle.png" class="image">
+          <span class="item-title">Bridle</span>
+        </div>
+        <div class="item" draggable="true">
+          <img src="Assets/Items/ribbon.png" class="image">
+          <span class="item-title">Ribbon</span>
+        </div>
+        <div class="item" draggable="true">
+          <img src="Assets/Items/trophy.png" class="image">
+          <span class="item-title">Trophy</span>
+        </div>
+      </div>
+    </div>
+    <div id="backdrops">
+      <h3 class="backdrops-header">Backdrops</h3>
+      <div id="backdrops-wrapper">
+        <div class="backdrop">
+          <img src="/Assets/Backdrops/meadow.png" class="image">
+          <span class="backdrop-title">Meadow</span>
+        </div>
+        <div class="backdrop">
+          <img src="/Assets/Backdrops/rainbow.png" class="image">
+          <span class="backdrop-title">Rainbow</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="pondscript.js"></script>
+</body>
+
+</html>
