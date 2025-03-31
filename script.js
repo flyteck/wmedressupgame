@@ -87,9 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
+	// attach event listener to delete button
+const deleteButton = document.getElementById('delete-button');
+	if(deleteButton) {
+		deleteButton.addEventListener('click', () => deleteItem());
+	}
+
 // 	function to delete items from game window
 function deleteItem(item) {
-		// if item has red glow, delete from game on click of X button
+	//  get all items with red glow css property
+	const selectedItems = document.querySelectorAll('.redGlow');
+	// loop through all items and delete
+	selectedItems.forEach(item => {
+		item.remove();
+	});
 }
 
 // background functionality
