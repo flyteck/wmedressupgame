@@ -2,7 +2,7 @@
 // When you click on a draggable item and move it out of the div, it adds a class that positions it absolute
 // this should be the IMAGE I think? not the div. The div with the title can stay
 // todo: add docstrings to explain the functions for reference later
-// change to object oriented approach
+// todo: change to object oriented approach
 
 // god this is a nightmare
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// item size functionality
 // add event listener for slider html element
-// 	todo: edit this to work with the new size buttons (Removed the slider for scale)
+// 	todo: edit this to work with the new size buttons (previously worked with the slider for scale, but think buttons will be a better control for size)
 	const scaleSlider = document.getElementById('scale-slider');
 	scaleSlider.addEventListener('input', () => {
 		// select items by red glow
@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 	item rotate functionality
 // 	add event listener for rotation slider
+// 	todo: this doesnt work
 	const rotateSlider = document.getElementById('rotate-slider');
 	rotateSlider.addEventListener('input', () => {
 		// select items by red glow
@@ -69,8 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			item.style.transform = `rotate(${rotateSlider.value}deg)`;
 		});
 	});
-
-});
+}); // close document event listener
 
 	// Function to handle dragging and repositioning of items on the stage
 	function makeItemDraggable(item) {
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Reset the position after the drag ends
 			item.style.position = 'absolute'; // Keeps the item in its new position
 		});
-	}
+	} //close function
 
 
 	// delete items functionality

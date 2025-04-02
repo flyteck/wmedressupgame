@@ -28,7 +28,22 @@
 - items do not resize in scale with doll when window size changes
 - items can be placed outside of the stage window
 
-#### Login System:
+# Login & equid upload System:
 - setup hashing for passwords
 - connect database to repository
 - for verifying login, hash the entered password and check if it matches the stored hash.
+
+- for equid upload system:
+  - users paste the url of their equid and we write a script to scrape:
+    - creation date, 
+    - image, 
+    - artist name
+    - no other details can be scraped due to format inconsistency
+  - users self-input:
+    - equid name
+    - owner
+    - sire link
+    - dam link
+    - sex
+    - gender
+    - 

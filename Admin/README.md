@@ -97,6 +97,8 @@ Revised the ER diagram to include junction tables for many-many relationships:
 - user controlled experience: user controls for visibility of gore, nudity, etc. User tagging system: 
   - users must tag the content they publish properly. this is the only thing that will be taken explicitly seriously on the site, because tagging of content ensures the safety and comfort of all users.
   - because each user can customise their experience of the site mainly via tags, tagging correctly is important so this is the only area we would need to consider any ""punishment"" for ""offenders"" . god i hate using that language.
+- say YES if there's no reason to say no
+- rules are for: 1) safeguarding 2) ensuring fun for as many users as possible.
 
 ### Considerations
 - we want to maintain a level of agency over our work: the thing i am tense about is the possibility that horsy comes on board and "takes over" for want of a better expression.
