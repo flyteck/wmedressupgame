@@ -27,3 +27,8 @@
 - item stops dragging when cursor moves too fast
 - items do not resize in scale with doll when window size changes
 - items can be placed outside of the stage window
+
+#### Login System:
+- setup hashing for passwords
+- connect database to repository
+- for verifying login, hash the entered password and check if it matches the stored hash.

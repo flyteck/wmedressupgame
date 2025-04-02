@@ -48,7 +48,10 @@ upload their equids
 | equids| stores all equid information | Equids wear items. To items one to many, to users many to one                  | Unique identifier retrieved from URL (special case manual ID for deviantart equids) |
 | items | stores items and backdrops | To users many to one, to equids many to one,   | Item ID generated at item creation or item name for time being                      |                                
 ER Diagram below (still a wip)
-![img.png](EntityRelationshipDiagram.png)
+![img.png](../Assets/EntityRelationshipDiagram.png)
+Revised the ER diagram to include junction tables for many-many relationships:
+![revisedERD.png](../Assets/revisedERD.png)
+
 
 ### Style Guide
 - document yet to be created-- team workshop it?
@@ -111,3 +114,17 @@ ER Diagram below (still a wip)
   - whitelist of words visible to the players (any non-whitelist words that adult users may post will simply not show up for kids)
   - no images except for admin- approved image sets. this means kids won't see new uploads in real time due to admins having to approve them before visibility to children.
   - etc
+
+### Repository Structure
+could possibly use this file structure to stay organised moving forwards?  
+/ (Root)  
+/assets  
+/components  
+/pages  
+/scripts  
+/styles  
+/images  
+index.html  
+README.md  
+todo.md
+.gitignore  

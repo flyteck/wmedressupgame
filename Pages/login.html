@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../Styles/login.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Freckle+Face&family=Permanent+Marker&display=swap');
+    </style>
+</head>
+<body>
+
+<!--contains page content-->
+<div class="wrapper">
+<!--    contains login boxes-->
+    <div id="login-wrapper">
+
+        <form>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" name="pwd">
+        </form>
+
+        <p class="toggle" onclick="toggleForm()">Don't have an account? Sign up</p>
+<!--        close login wrapper-->
+    </div>
+<!--    close wrapper-->
+</div>
+
+<script>
+    function toggleForm() {
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const toggleText = document.querySelector(".toggle");
+        const title = document.getElementById("form-title");
+
+        if (loginForm.style.display === "none") {
+            loginForm.style.display = "block";
+            signupForm.style.display = "none";
+            toggleText.innerHTML = "Don't have an account? Sign up";
+            title.innerHTML = "Login";
+        } else {
+            loginForm.style.display = "none";
+            signupForm.style.display = "block";
+            toggleText.innerHTML = "Already have an account? Login";
+            title.innerHTML = "Sign Up";
+        }
+    }
+</script>
+
+</body>
+</html>

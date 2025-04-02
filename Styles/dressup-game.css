@@ -5,12 +5,13 @@
 	box-sizing: border-box;
 }
 
-/* set font and bg colour */
+/* set font and bg colour for document */
 html {
 	/*scroll-behaviour: smooth;*/
 	font-family: "Averia Libre", serif;
 	background: #819daa url(/Assets/Backdrops/mountains.png) no-repeat center center;
-	background-size: 110%;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 /* all images on page display at max 100% width*/
@@ -18,9 +19,10 @@ img {
 	max-width: 100%;
 }
 
+/* style for entire game window */
 .wrapper {
 	display: flex;
-	max-width: min(100%, 1000px);
+	max-width: min(100%, 900px);
 	flex-direction: column;
 	margin: 0 auto 40px;
 }
@@ -35,20 +37,25 @@ img {
 }
 
 #dressup-wrapper {
-	background: white;
+	background: #DCEEF6FF;
 	display: flex;
 	flex-direction: column;
 	/*width: 110vh;*/
 	/*max-width: 100%;*/
-	margin: 0 auto;
+	margin: auto 0 auto 0;
 	border-radius: 4px;
 	border: 4px solid #819daa;
+	/*background-color: greenyellow;*/
+	/*max-width: 900px;*/
 }
 
 #stage {
 	display: flex;
 	overflow: hidden;
 	horiz-align: center;
+	max-width: 900px;
+	margin: auto;
+	border-bottom: 4px solid #819daa;;
 }
 
 #doll {
@@ -63,7 +70,7 @@ img {
 #dressup-elements {
 	display: flex;
 	justify-content: space-between;
-	padding: 20px;
+	padding: 0 20px 20px 20px;
 	background: #DCEEF6FF;
 	margin-top: 20px;
 	max-height: 300px;
@@ -78,7 +85,7 @@ img {
 	border: 2px solid #819daa;
 }
 
-/* Enable scrolling specifically for the items and backdrops */
+/* style for the items, settings, and backdrop boxes in the hotbar */
 #items {
 	flex-basis: 50%;
 	flex-direction: row;

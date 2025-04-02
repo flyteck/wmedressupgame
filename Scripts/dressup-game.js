@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// item size functionality
 // add event listener for slider html element
+// 	todo: edit this to work with the new size buttons (Removed the slider for scale)
 	const scaleSlider = document.getElementById('scale-slider');
 	scaleSlider.addEventListener('input', () => {
 		// select items by red glow
@@ -53,7 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		// iterate these items and scale them
 		selectedItems.forEach(item => {
 			// const scaleValue = scaleSlider.value / 100;
-			item.style.transform = `scale(${scaleSlider.value / 10})`;
+			item.style.transform = `scale(${scaleSlider.value})`;
+		});
+	});
+
+// 	item rotate functionality
+// 	add event listener for rotation slider
+	const rotateSlider = document.getElementById('rotate-slider');
+	rotateSlider.addEventListener('input', () => {
+		// select items by red glow
+		const selectedItems = document.querySelectorAll('.redGlow');
+		// iterate these items and rotate them
+		selectedItems.forEach(item => {
+			item.style.transform = `rotate(${rotateSlider.value}deg)`;
 		});
 	});
 

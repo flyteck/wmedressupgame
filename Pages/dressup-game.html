@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../Styles/dressup-game.css">
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Freckle+Face&family=Permanent+Marker&display=swap');
 	</style>
@@ -22,7 +22,7 @@
 <!--			stage div to act as the dressup scene area.-->
 				<div id="stage">
 <!--				default equid image, todo: changes on user selection from dropdown-->
-					<img src="Assets/banana.png" id="doll" alt="doll">
+					<img src="../Assets/Equid%20Defaults/banana.png" id="doll" alt="doll">
 <!--			close stage-->
 				</div>
 
@@ -35,15 +35,18 @@
 						<h3 class="settings-header">Settings</h3>
 
 						<div class="setting" id="help-button">
-							<img src="Assets/help.png" class="image">
+							<img src="../Assets/help.png" class="image">
 							<span class="setting-title">Help</span>
 						</div>
 						<div class="setting" id="delete-button">
-						<img src="Assets/delete.png" class="image">
+						<img src="../Assets/delete.png" class="image">
 						<span class="delete-button">Remove Item</span>
 					</div>
 						<div class="setting" id="size">
-							<label>Size <input type="range" id="scale-slider" min="5" max="20" value="10"></label>
+							<label>Size</label>
+							<button type="button" onclick="changeSize(-1)">-</button>
+							<span id="size-value">10</span>
+							<button type="button" onclick="changeSize(1)">+</button>
 						</div>
 						<div class="setting" id="rotate">
 							<label>Rotate <input type="range" id="rotate-slider" min="50" max="500" value="200"></label>
@@ -71,23 +74,23 @@
 						<h3 class="items-header">Items</h3>
 
 						<div class="item" draggable="true">
-							<img src="Assets/Items/bridle.png" class="image">
+							<img src="../Assets/Items/bridle.png" class="image">
 							<span class="item-title">Bridle</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="Assets/Items/trophy.png" class="image">
+							<img src="../Assets/Items/trophy.png" class="image">
 							<span class="item-title">Trophy</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="Assets/Items/1st.png" class="image">
+							<img src="../Assets/Items/1st.png" class="image">
 							<span class="item-title">1st</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="Assets/Items/2nd.png" class="image">
+							<img src="../Assets/Items/2nd.png" class="image">
 							<span class="item-title">2nd</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="Assets/Items/3rd.png" class="image">
+							<img src="../Assets/Items/3rd.png" class="image">
 							<span class="item-title">3rd</span>
 						</div>
 	<!--			close items wrapper-->
@@ -112,6 +115,10 @@
 							<img src="/Assets/Backdrops/mountains.png" class="image">
 							<span class="backdrop-title">Mountains</span>
 						</div>
+						<div class="backdrop">
+						<img src="/Assets/Backdrops/night-mountains.png" class="image">
+						<span class="backdrop-title">Night Mountains</span>
+					</div>
 	<!--			close backdrops wrapper-->
 					</div>
 	<!--		close backdrops-->
@@ -135,7 +142,7 @@
 	</div>
 </div>
 
-	<script src="script.js"></script>
+	<script src="../Scripts/dressup-game.js"></script>
 </body>
 
 </html>

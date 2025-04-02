@@ -1,0 +1,30 @@
+/*sets defaults for page*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* sets background image to mountains and font*/
+html {
+    /*scroll-behaviour: smooth;*/
+    font-family: "Averia Libre", serif;
+    background: #819daa url(/Assets/Backdrops/mountains.png) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* style for entire content window */
+.wrapper {
+    background-color: red;
+    display: flex;
+    max-width: min(100%, 900px);
+    flex-direction: column;
+    margin: 0 auto 40px;
+}
+
+#login-wrapper {
+    background-color: greenyellow;
+    height: 900px;
+    width: 100px;
+}
