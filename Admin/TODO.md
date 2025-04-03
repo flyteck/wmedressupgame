@@ -27,11 +27,14 @@
 - item stops dragging when cursor moves too fast
 - items do not resize in scale with doll when window size changes
 - items can be placed outside of the stage window
+- items not in scale with the equid image by default
 
 # Login & equid upload System:
 - setup hashing for passwords
 - connect database to repository
 - for verifying login, hash the entered password and check if it matches the stored hash.
+- connect / link other acounts like discord, deviantart, cs, toyhou.se etc
+
 
 - for equid upload system:
   - users paste the url of their equid and we write a script to scrape:
