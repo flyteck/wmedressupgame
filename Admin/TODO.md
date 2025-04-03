@@ -8,7 +8,7 @@
 - [ ] fix item drag bugs
 - [ ] add a size and rotation slider for dressup items
 - [ ] add flip horizontal option for items and scene
-- [ ] add a way to remove an item from the stage
+- [x] add a way to remove an item from the stage
 - [ ] add counter for inventory- decrease item availability as items are added to stage, and implement this across all saved equid dressups in user account in future.
 
 #### backend todo:

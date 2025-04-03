@@ -167,21 +167,21 @@ const dollImage = document.getElementById('doll');
 // code to replace the Equid image with the user uploaded image
 // get the equid upload button
 const equidUpload = document.getElementById('upload-button');
-// get the user input url from the rat upload button
+// get the user input url from the equid upload button
 const newEquid = document.getElementById('equid-url-input');
-//get the rat image spot
+//get the equid image spot
 const dollSpot = document.getElementById('doll');
-// Replace the rat image with the new rat image when the upload button is clicked
+// Replace the equid image with the new equid image when the upload button is clicked
 equidUpload.onclick = function() {
 	// Get the URL entered by the user
 	const newEquidURL = newEquid.value;
 
 	// Check if the URL is valid
 	if (newEquidURL) {
-		// Set the rat image's src to the new URL
+		// Set the equid image's src to the new URL
 		dollSpot.src = newEquidURL;
 	} else {
-		alert("Please enter a valid URL for the rat image.");
+		alert("Please enter a valid URL for the equid image.");
 	}
 };
 
