@@ -15,14 +15,30 @@
 <!--    contains login boxes-->
     <div id="login-wrapper">
 
-        <form>
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="pwd">Password:</label><br>
-            <input type="password" id="pwd" name="pwd">
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="pwd" required>
+
+            <button type="submit" class="login-btn">Login</button>
         </form>
 
-        <p class="toggle" onclick="toggleForm()">Don't have an account? Sign up</p>
+        <form id="signup-form">
+            <label for="username">Desired Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="pwd">Strong Password:</label>
+            <input type="password" id="pwd" name="pwd" required>
+
+            <label for="pwd">Link your discord account:</label>
+            <input type="text" id="pwd" name="discord" placeholder="paste your discord username" required>
+
+            <button type="submit" class="login-btn">Register</button>
+        </form>
+
+        <p class="toggle" id="login-register-switch" onclick="toggleForm()">Don't have an account? Sign up here!</p>
 <!--        close login wrapper-->
     </div>
 <!--    close wrapper-->
@@ -38,7 +54,7 @@
         if (loginForm.style.display === "none") {
             loginForm.style.display = "block";
             signupForm.style.display = "none";
-            toggleText.innerHTML = "Don't have an account? Sign up";
+            toggleText.innerHTML = "Don't have an account? Sign up here!";
             title.innerHTML = "Login";
         } else {
             loginForm.style.display = "none";
