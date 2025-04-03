@@ -89,8 +89,8 @@ img {
 #items {
 	flex-basis: 50%;
 	flex-direction: row;
-	overflow-x: auto; /* Scroll horizontally */
-	overflow-y: hidden; /* Prevent vertical scroll */
+	overflow-y: auto; /* Scroll vertically */
+	overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 #backdrops {
@@ -125,19 +125,19 @@ img {
 /*	gap: 10px;*/
 /*}*/
 
-/* Styling for the items wrapper with horizontal scroll */
-.items-wrapper {
-	padding: 10px;
-	overflow-x: auto; /* enables horizontal scrolling */
-	white-space: nowrap;
-	display: flex;
-	gap: 10px;
-	max-width: 100%; /* Ensure it uses the full width */
-	overflow-y: hidden; /* Prevent vertical scroll */
-}
+/*!* Styling for the items wrapper with horizontal scroll *!*/
+/*.items-wrapper {*/
+/*	padding: 10px;*/
+/*	overflow-x: auto; !* enables horizontal scrolling *!*/
+/*	white-space: nowrap;*/
+/*	display: flex;*/
+/*	gap: 10px;*/
+/*	max-width: 100%; !* Ensure it uses the full width *!*/
+/*	overflow-y: hidden; !* Prevent vertical scroll *!*/
+/*}*/
 
 /* Styling for the backdrops wrapper with vertical scroll */
-.backdrops-wrapper {
+.items-wrapper, .backdrops-wrapper {
 	padding: 10px;
 	overflow-y: auto; /* enables vertical scrolling */
 	overflow-x: hidden; /* Prevent horizontal scroll */
