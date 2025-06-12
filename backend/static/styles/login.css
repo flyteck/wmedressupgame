@@ -100,3 +100,10 @@ input:focus {
 #login-register-switch {
     margin-top: 10px;
 }
+
+.flashes {
+    list-style-type: none;
+    padding: 10px;
+    color: red;
+    font-weight: bold;
+}

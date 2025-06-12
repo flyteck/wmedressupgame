@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../Styles/login.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/login.css') }}">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Freckle+Face&family=Permanent+Marker&display=swap');
     </style>
@@ -12,28 +13,39 @@
 
 <!--contains page content-->
 <div class="wrapper">
+<!--    jinja2 template syntax- for rendering html with dynamic data in flask-->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
 <!--    contains login boxes-->
     <div id="login-wrapper">
 
-        <form id="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <form id="login-form" method="POST" action="{{ url_for('login') }}">
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="username" required>
 
-            <label for="pwd">Password:</label>
-            <input type="password" id="pwd" name="pwd" required>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
 
             <button type="submit" class="login-btn">Login</button>
         </form>
 
-        <form id="signup-form">
-            <label for="username">Desired Username:</label>
-            <input type="text" id="username" name="username" required>
+        <form id="signup-form" method="POST" action="{{ url_for('register') }}">
+            <label for="register-username">Desired Username:</label>
+            <input type="text" id="register-username" name="username" required>
 
-            <label for="pwd">Strong Password:</label>
-            <input type="password" id="pwd" name="pwd" required>
+            <label for="register-password">Strong Password:</label>
+            <input type="password" id="register-password" name="password" required>
 
-            <label for="pwd">Link your discord account:</label>
-            <input type="text" id="pwd" name="discord" placeholder="paste your discord username" required>
+            <label for="discord">Link your discord account:</label>
+            <input type="text" id="discord" name="discord" placeholder="paste your discord username" required>
 
             <button type="submit" class="login-btn">Register</button>
         </form>

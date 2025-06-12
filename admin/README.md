@@ -48,9 +48,9 @@ upload their equids
 | equids| stores all equid information | Equids wear items. To items one to many, to users many to one                  | Unique identifier retrieved from URL (special case manual ID for deviantart equids) |
 | items | stores items and backdrops | To users many to one, to equids many to one,   | Item ID generated at item creation or item name for time being                      |                                
 ER Diagram below (still a wip)
-![img.png](../Assets/EntityRelationshipDiagram.png)
+![img.png](../backend/static/assets/EntityRelationshipDiagram.png)
 Revised the ER diagram to include junction tables for many-many relationships:
-![revisedERD.png](../Assets/revisedERD.png)
+![revisedERD.png](../backend/static/assets/revisedERD.png)
 
 
 ### Style Guide
