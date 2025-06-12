@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const scaleSlider = document.getElementById('scale-slider');
 	scaleSlider.addEventListener('input', () => {
 		// select items by red glow
-		const selectedItems = document.querySelectorAll('.redGlow');
+		const selectedItems = document.querySelectorAll('.editGlow');
 		// iterate these items and scale them
 		selectedItems.forEach(item => {
 			// const scaleValue = scaleSlider.value / 100;
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const rotateSlider = document.getElementById('rotate-slider');
 	rotateSlider.addEventListener('input', () => {
 		// select items by red glow
-		const selectedItems = document.querySelectorAll('.redGlow');
+		const selectedItems = document.querySelectorAll('.editGlow');
 		// iterate these items and rotate them
 		selectedItems.forEach(item => {
 			item.style.transform = `rotate(${rotateSlider.value}deg)`;
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		})
 
 		item.addEventListener('click', () => {
-			item.classList.toggle('redGlow');
+			item.classList.toggle('editGlow');
 		})
 
 		item.addEventListener('dragstart', (e) => {
@@ -128,7 +128,7 @@ const deleteButton = document.getElementById('delete-button');
 // 	function to delete items from game window
 function deleteItem() {
 	//  get all items with red glow css property
-	const selectedItems = document.querySelectorAll('.redGlow');
+	const selectedItems = document.querySelectorAll('.editGlow');
 	// loop through all items and delete
 	selectedItems.forEach(item => {
 		item.remove();

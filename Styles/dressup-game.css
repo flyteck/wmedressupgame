@@ -9,7 +9,7 @@
 html {
 	/*scroll-behaviour: smooth;*/
 	font-family: "Averia Libre", serif;
-	background: #819daa url(/Assets/Backdrops/mountains.png) no-repeat center center;
+	background: #819daa url(/Assets/Backdrops/tundra.png) no-repeat center center;
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -27,6 +27,28 @@ img {
 	margin: 0 auto 40px;
 }
 
+/* style for the header which contains url upload and login button*/
+#header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+}
+
+#login-button {
+	padding: 10px 20px;
+	background-color: #819daa;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+#login-button:hover {
+	background-color: #9caa8d;
+}
+
 #dropdown {
 	padding: 5px 10px;
 	background: #819daa;
@@ -36,6 +58,7 @@ img {
 	border-radius: 4px;
 }
 
+/* style for dressup game container*/
 #dressup-wrapper {
 	background: #DCEEF6FF;
 	display: flex;
@@ -49,6 +72,7 @@ img {
 	/*max-width: 900px;*/
 }
 
+/* style for game stage window*/
 #stage {
 	display: flex;
 	overflow: hidden;
@@ -58,6 +82,7 @@ img {
 	border-bottom: 4px solid #819daa;;
 }
 
+/* style for doll image*/
 #doll {
 	/*min-width: calc(60% - 220px);*/
 	padding: 20px;
@@ -210,9 +235,9 @@ img {
 	background-image: radial-gradient(circle, rgb(255, 196, 0) 0%, rgba(255, 0, 0, 0) 60%);
 }
 
-/*glow effect to be used for deleting items*/
-.redGlow {
-	background-image: radial-gradient(circle, rgb(255, 0, 36) 0%, rgba(255, 0, 0, 0) 60%);
+/*glow effect to be used for deleting and editing items*/
+.editGlow {
+	background-image: radial-gradient(circle, rgb(0, 42, 255) 0%, rgba(255, 0, 0, 0) 60%);
 }
 
 

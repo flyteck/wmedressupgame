@@ -12,17 +12,25 @@
 <body>
 <!--contains entire game window-->
 	<div class="wrapper">
+
+<!--		header.html to contain url upload box and login button-->
+		<div id="header">
 <!--		drop down selector to choose user equid todo: implement this functionality-->
 		<div id="dropdown">
 		<label>Upload Equid from URL <input type="url" id="equid-url-input" placeholder="Enter image URL" /></label>
 		<button id="upload-button">Upload</button></div>
+		<div id="login">
+			<a id="login-button" href="login.html">Login / Register</a>
+		</div>
+<!--			close header.html div-->
+		</div>
 
 <!--	wrapper that contains dressup game-->
 		<div id="dressup-wrapper">
 <!--			stage div to act as the dressup scene area.-->
 				<div id="stage">
 <!--				default equid image, todo: changes on user selection from dropdown-->
-					<img src="../Assets/Equid%20Defaults/banana.png" id="doll" alt="doll">
+					<img src="../Assets/Equid%20Defaults/pondgen1.png" id="doll" alt="doll">
 <!--			close stage-->
 				</div>
 
