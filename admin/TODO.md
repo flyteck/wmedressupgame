@@ -12,14 +12,16 @@
 - [ ] add counter for inventory- decrease item availability as items are added to stage, and implement this across all saved equid dressups in user account in future.
 
 #### backend todo:
-- [ ] add database (pond) (it's happening! it's in the works)
+- [x] add database (pond) (it's happening! it's in the works)
 
 #### frontend todo:
 - [ ] add select equid dropdown functionality
-- [ ] add account creation/login and equid upload page
+- [x] add account creation/login 
+- [ ] add equid upload page
 - [x] add scroll for overflowing items and backdrops in containers-- horizontal for items, vertical for backdrops
 - [ ] add website theme selector to change site looks
-- [ ] make the stage and doll centred inside the game container
+- [x] make the stage and doll centred inside the game container
+- [ ] change the game window system so that there are buttons in the game navbar for settings, items, and backdrops, and buttons for delete item, help, and reset all. The navbar buttons will open a sidebar where items can be chosen instead of a static bottom tray for items settings etc.
 
 # Bugs:
 - drag and drop not work when window scrolled down
@@ -49,4 +51,7 @@
     - dam link
     - sex
     - gender
-    - 
+
+# Bugs
+- game items need to scale with doll on window resize
+- game item movement system is buggy

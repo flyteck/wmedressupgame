@@ -71,7 +71,7 @@ def login():
 
         if user and user.check_password(password):
             login_user(user)
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('game'))
         else:
             flash('invalid username or password')
 
@@ -85,20 +85,45 @@ def logout():
     return redirect(url_for('login'))
 
 
+# render the game pages
 @app.route('/dashboard')
 @login_required
 def dashboard():
     # this is an f string which is a string that you can do cool functional stuff with
-    return f'welcome, {current_user.username}!'
+    # return f'welcome, {current_user.username}!'
+    return render_template('dashboard.html')
 
-
-# render the game page
 @app.route('/game')
 def game():
     return render_template('dressup-game.html')
 
 
+@app.route('/navbar')
+def navbar():
+    return render_template('navbar.html')
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/users')
+def users():
+    return render_template('users.html')
+
+
+@app.route('/equids')
+def equids():
+    return render_template('equids.html')
+
+
+@app.route('/my-page')
+def myPage():
+    return render_template('my-page.html')
+
+
 # run the app (if name==main means only run the app when it's being run directly or sth idk really)
 if __name__ == "__main__":
-    app.run()
-
+    app.run(debug=True)
+    # app.run()

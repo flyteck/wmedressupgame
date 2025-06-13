@@ -1,0 +1,23 @@
+<!--straight code for header no boilerplate needed-->
+<div id="header-bar">
+<ul id="navbar" class="navbar">
+    <li>
+      <a href="{{ url_for('index') }}" alt="home">Home</a>
+    </li>
+    <li>
+      <a href="{{ url_for('game') }}" alt="dress-up">Dress Up Game</a>
+    </li>
+    <li>
+      <a href="{{ url_for('users') }}" alt="users">Member List</a>
+    </li>
+</ul>
+
+<ul id="user-nav" class="user-nav">
+  <li>
+    <a href="{{ url_for('dashboard') }}" alt="dashboard">User Dashboard</a>
+  </li>
+  <li>
+    <a href="{{ url_for('login') }}" alt="login" id="login">Login / Register / logout</a>
+  </li>
+</ul>
+</div>

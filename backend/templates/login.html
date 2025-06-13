@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/login.css') }}">
+{% extends "base.html" %}
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Freckle+Face&family=Permanent+Marker&display=swap');
-    </style>
-</head>
-<body>
+{% block title %}Dress Up Game{% endblock %}
+
+{% block content %}
 
 <!--contains page content-->
-<div class="wrapper">
+<div class="login-page">
 <!--    jinja2 template syntax- for rendering html with dynamic data in flask-->
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -77,5 +70,4 @@
     }
 </script>
 
-</body>
-</html>
+{% endblock %}

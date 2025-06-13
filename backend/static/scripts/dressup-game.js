@@ -6,10 +6,13 @@
 
 // god this is a nightmare
 
+// domcontentloaded to ensure js only runs after html has fully loaded to prevent errors
 document.addEventListener("DOMContentLoaded", () => {
 	// Get references to the items and stage
-	const items = document.querySelectorAll('.item');
 	const stage = document.getElementById('stage');
+//	null check
+	if (!stage) return;
+	const items = document.querySelectorAll('.item');
 
 	// main game logic
 	// handles clicking an item to add it to the stage
@@ -44,33 +47,33 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
-	// item size functionality
-// add event listener for slider html element
-// 	todo: edit this to work with the new size buttons (previously worked with the slider for scale, but think buttons will be a better control for size)
-	const scaleSlider = document.getElementById('scale-slider');
-	scaleSlider.addEventListener('input', () => {
-		// select items by red glow
-		const selectedItems = document.querySelectorAll('.editGlow');
-		// iterate these items and scale them
-		selectedItems.forEach(item => {
-			// const scaleValue = scaleSlider.value / 100;
-			item.style.transform = `scale(${scaleSlider.value})`;
-		});
-	});
+//	// item size functionality
+//// add event listener for slider html element
+//// 	todo: edit this to work with the new size buttons (previously worked with the slider for scale, but think buttons will be a better control for size)
+//	const scaleSlider = document.getElementById('scale-slider');
+//	scaleSlider.addEventListener('input', () => {
+//		// select items by red glow
+//		const selectedItems = document.querySelectorAll('.editGlow');
+//		// iterate these items and scale them
+//		selectedItems.forEach(item => {
+//			// const scaleValue = scaleSlider.value / 100;
+//			item.style.transform = `scale(${scaleSlider.value})`;
+//		});
+//	});
 
-// 	item rotate functionality
-// 	add event listener for rotation slider
-// 	todo: this doesnt work
-	const rotateSlider = document.getElementById('rotate-slider');
-	rotateSlider.addEventListener('input', () => {
-		// select items by red glow
-		const selectedItems = document.querySelectorAll('.editGlow');
-		// iterate these items and rotate them
-		selectedItems.forEach(item => {
-			item.style.transform = `rotate(${rotateSlider.value}deg)`;
-		});
-	});
-}); // close document event listener
+//// 	item rotate functionality
+//// 	add event listener for rotation slider
+//// 	todo: this doesnt work
+//	const rotateSlider = document.getElementById('rotate-slider');
+//	rotateSlider.addEventListener('input', () => {
+//		// select items by red glow
+//		const selectedItems = document.querySelectorAll('.editGlow');
+//		// iterate these items and rotate them
+//		selectedItems.forEach(item => {
+//			item.style.transform = `rotate(${rotateSlider.value}deg)`;
+//		});
+//	});
+//}); // close document event listener
 
 	// Function to handle dragging and repositioning of items on the stage
 	function makeItemDraggable(item) {
@@ -187,20 +190,27 @@ equidUpload.onclick = function() {
 
 
 // help popup functionality
+const helpPopup = document.getElementById('help-popup');
+const closeButton = document.querySelector('.close-button');
+const helpButton = document.getElementById('help-button');
+
 // Function to open the help popup
 function openHelpPopup() {
-	document.getElementById('help-popup').style.display = 'block';
+	helpPopup.style.display = 'block';
 }
 
 // Function to close the help popup
 function closeHelpPopup() {
-	document.getElementById('help-popup').style.display = 'none';
+	helpPopup.style.display = 'none';
 }
 
 // Attach event listener to the help button
-const helpButton = document.getElementById('help-button'); // Ensure your help button has this ID
 if (helpButton) {
 	helpButton.addEventListener('click', openHelpPopup);
 }
 
+if (closeButton) {
+    closeButton.addEventListener('click', closeHelpPopup);
+}
 
+});

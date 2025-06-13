@@ -1,1 +1,0 @@
-//add script to add footer to pages

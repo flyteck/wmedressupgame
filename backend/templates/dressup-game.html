@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='styles/dressup-game.css') }}">
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Freckle+Face&family=Permanent+Marker&display=swap');
-	</style>
-</head>
+{% extends "base.html" %}
 
-<body>
+{% block title %}Dress Up Game{% endblock %}
+
+{% block content %}
+
 <!--contains entire game window-->
-	<div class="wrapper">
+	<div id="game-window" class="wrapper">
 
-<!--		header.html to contain url upload box and login button-->
-		<div id="header">
-<!--		drop down selector to choose user equid todo: implement this functionality-->
-		<div id="dropdown">
+<!--	navbar.html to contain url upload box and login button-->
+		<div id="game-nav">
+<!--	drop down selector to choose user equid todo: implement this functionality-->
+		<div id="url-upload">
 		<label>Upload Equid from URL <input type="url" id="equid-url-input" placeholder="Enter image URL" /></label>
 		<button id="upload-button">Upload</button></div>
-		<div id="login">
-			<a id="login-button" href="login.html">Login / Register</a>
+		<div id="equid-select">
+			<p>replace with select equid dropdown</p>
 		</div>
-<!--			close header.html div-->
+<!--	close game nav div-->
 		</div>
 
 <!--	wrapper that contains dressup game-->
@@ -30,7 +24,7 @@
 <!--			stage div to act as the dressup scene area.-->
 				<div id="stage">
 <!--				default equid image, todo: changes on user selection from dropdown-->
-					<img src="../Assets/Equid%20Defaults/pondgen1.png" id="doll" alt="doll">
+					<img src="{{ url_for('static', filename='assets/equid-defaults/banana.png') }}" id="doll" alt="doll">
 <!--			close stage-->
 				</div>
 
@@ -43,11 +37,11 @@
 						<h3 class="settings-header">Settings</h3>
 
 						<div class="setting" id="help-button">
-							<img src="../Assets/help.png" class="image">
+							<img src="{{ url_for('static', filename='assets/misc/help.png') }}" class="image">
 							<span class="setting-title">Help</span>
 						</div>
 						<div class="setting" id="delete-button">
-						<img src="delete.png" class="image">
+						<img src="{{ url_for('static', filename='assets/misc/delete.png') }}" class="image">
 						<span class="delete-button">Remove Item</span>
 					</div>
 						<div class="setting" id="size">
@@ -86,23 +80,23 @@
 							<span class="item-title">Bridle</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="../Assets/Items/trophy.png" class="image">
+							<img src="{{ url_for('static', filename='assets/items/trophy.png') }}" class="image">
 							<span class="item-title">Trophy</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="../Assets/Items/1st.png" class="image">
+							<img src="{{ url_for('static', filename='assets/items/1st.png') }}" class="image">
 							<span class="item-title">1st</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="../Assets/Items/2nd.png" class="image">
+							<img src="{{ url_for('static', filename='assets/items/2nd.png') }}" class="image">
 							<span class="item-title">2nd</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="../Assets/Items/3rd.png" class="image">
+							<img src="{{ url_for('static', filename='assets/items/3rd.png') }}" class="image">
 							<span class="item-title">3rd</span>
 						</div>
 						<div class="item" draggable="true">
-							<img src="../Assets/Items/scale-checker.png" class="image">
+							<img src="{{ url_for('static', filename='assets/items/scale-checker.png') }}" class="image">
 							<span class="item-title">Scaling Checker</span>
 						</div>
 	<!--			close items wrapper-->
@@ -116,19 +110,19 @@
 						<h3 class="backdrops-header">Backdrops</h3>
 
 						<div class="backdrop">
-							<img src="/Assets/Backdrops/meadow.png" class="image">
+							<img src="{{ url_for('static', filename='assets/backdrops/meadow.png') }}" class="image">
 							<span class="backdrop-title">Meadow</span>
 						</div>
 						<div class="backdrop">
-							<img src="/Assets/Backdrops/rainbow.png" class="image">
+							<img src="{{ url_for('static', filename='assets/backdrops/rainbow.png') }}" class="image">
 							<span class="backdrop-title">Rainbow</span>
 						</div>
 						<div class="backdrop">
-							<img src="/Assets/Backdrops/mountains.png" class="image">
+							<img src="{{ url_for('static', filename='assets/backdrops/mountains.png') }}" class="image">
 							<span class="backdrop-title">Mountains</span>
 						</div>
 						<div class="backdrop">
-						<img src="/Assets/Backdrops/night-mountains.png" class="image">
+						<img src="{{ url_for('static', filename='assets/backdrops/night-mountains.png') }}" class="image">
 						<span class="backdrop-title">Night Mountains</span>
 					</div>
 	<!--			close backdrops wrapper-->
@@ -146,15 +140,17 @@
 <!-- help popup -->
 <div id="help-popup" class="popup">
 	<div class="popup-content">
-		<span class="close-button" onclick="closeHelpPopup()">&times;</span>
+		<span class="close-button">&times;</span>
 		<h2>How to Play</h2>
 		<p>Click an item from the hotbar to add it to the scene. <br>
 			Drag it around to place it, or click on it to select it. <br>
 			Once selected, you can edit the item in the settings window or delete it.</p>
 	</div>
 </div>
+{% endblock %}
 
-	<script src="../Scripts/dressup-game.js"></script>
-</body>
+{% block scripts %}
+<!--	main game script-->
+<script src="{{ url_for('static', filename='scripts/dressup-game.js') }}"></script>
 
-</html>
+{% endblock %}
